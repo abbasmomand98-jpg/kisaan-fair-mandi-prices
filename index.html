@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Kisaan — fair mandi prices and sowing advice for Pakistani farmers. Check the mandi rate, test a middleman's offer with the Munsif Meter, and plan rabi sowing by the weather.">
+  <title>Kisaan — Fair Crop Prices & Sowing Advisor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+  <header class="header">
+    <div class="hello">Fair crop prices · Pakistan</div>
+    <h1>Kisaan <span class="accent">🌾</span></h1>
+    <div class="sub">Mandi rates, fair-price checks & sowing advice — in your pocket.</div>
+  </header>
+
+  <!-- ============ HOME — mandi board ============ -->
+  <section class="view active" id="view-home">
+    <div class="banner" id="rabi-banner"></div>
+
+    <div class="search-wrap">
+      <span class="icon">🔍</span>
+      <input type="text" id="search" placeholder="Search crop or mandi…" autocomplete="off">
+    </div>
+
+    <div class="section-title">🧺 Today's mandi rates</div>
+    <div class="muted" id="crop-count" style="margin:0 2px 10px;"></div>
+    <div id="crop-list"></div>
+
+    <div class="card cta-card">
+      <h2>⚖️ Middleman offered you a price?</h2>
+      <p class="muted">Check it against the mandi rate before you shake hands.</p>
+      <button class="btn" data-goto="view-meter">Open the Munsif Meter →</button>
+    </div>
+  </section>
+
+  <!-- ============ MUNSIF METER ============ -->
+  <section class="view" id="view-meter">
+    <div class="card">
+      <h2>⚖️ Munsif Meter</h2>
+      <p class="muted">Aarthi ne rate lagaya? Pehle yahan check karein — mandi rate ke khilaaf munasib hai ya loot.</p>
+      <label for="meter-crop">Crop</label>
+      <select id="meter-crop"></select>
+      <div class="range-note" id="meter-range"></div>
+      <div class="row">
+        <div class="grow">
+          <label for="meter-offer">Offer you got (₨ / 40 kg)</label>
+          <input type="number" id="meter-offer" min="0" placeholder="e.g. 3400">
+        </div>
+        <div class="grow">
+          <label for="meter-maunds">Maunds to sell</label>
+          <input type="number" id="meter-maunds" min="0" placeholder="e.g. 25">
+        </div>
+      </div>
+      <div style="margin-top:14px;">
+        <button class="btn" id="meter-check">Check fairness</button>
+      </div>
+      <div id="meter-error" class="muted" style="color:var(--bad); margin-top:10px; display:none;"></div>
+    </div>
+    <div class="card" id="meter-result-card" style="display:none;">
+      <h2>Verdict</h2>
+      <div id="meter-verdict"></div>
+    </div>
+  </section>
+
+  <!-- ============ SOWING PLANNER ============ -->
+  <section class="view" id="view-sowing">
+    <div class="row">
+      <div class="grow">
+        <label for="sowing-crop">Crop</label>
+        <select id="sowing-crop"></select>
+      </div>
+      <div class="grow">
+        <label for="sowing-district">District</label>
+        <select id="sowing-district"></select>
+      </div>
+    </div>
+    <div id="sowing-body"></div>
+  </section>
+
+  <!-- ============ COSTS / PROFIT ============ -->
+  <section class="view" id="view-costs">
+    <div class="card">
+      <h2>💰 Season profit estimator</h2>
+      <p class="muted">See what a season really earns after seed, fertilizer and diesel.</p>
+      <label for="cost-crop">Crop</label>
+      <select id="cost-crop"></select>
+      <div class="row">
+        <div class="grow">
+          <label for="cost-acres">Acres</label>
+          <input type="number" id="cost-acres" min="0" placeholder="e.g. 12">
+        </div>
+        <div class="grow">
+          <label for="cost-yield">Expected yield (maunds/acre)</label>
+          <input type="number" id="cost-yield" min="0" placeholder="e.g. 35">
+        </div>
+      </div>
+    </div>
+    <div id="costs-result"></div>
+  </section>
+</div>
+
+<!-- Bottom tab bar -->
+<nav class="tabbar" aria-label="Main navigation">
+  <button class="tab active" data-view="view-home"><span class="ticon">🏠</span>Home</button>
+  <button class="tab" data-view="view-meter"><span class="ticon">⚖️</span>Munsif Meter</button>
+  <button class="tab" data-view="view-sowing"><span class="ticon">🌱</span>Sowing</button>
+  <button class="tab" data-view="view-costs"><span class="ticon">💰</span>Costs</button>
+</nav>
+
+<script src="data.js"></script>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
