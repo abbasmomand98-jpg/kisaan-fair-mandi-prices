@@ -1,0 +1,184 @@
+/* Kisaan — wheat-gold theme, mobile-first, generous whitespace. */
+:root {
+  --gold: #CA8A04;
+  --gold-dk: #A16207;
+  --gold-deep: #713F12;
+  --gold-50: #FFFBEB;
+  --gold-100: #FEF3C7;
+  --paper: #FDFBF7;
+  --card: #FFFFFF;
+  --ink: #29251C;
+  --muted: #787160;
+  --line: #E7E0CD;
+  --good: #059669;
+  --bad: #DC2626;
+  --info: #2563EB;
+  --radius: 18px;
+  --shadow: 0 10px 30px rgba(113, 63, 18, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Inter", -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.55;
+  padding-bottom: 92px;
+}
+
+.app { max-width: 640px; margin: 0 auto; padding: 20px 16px 8px; }
+
+.header { padding: 8px 4px 14px; }
+.header .hello {
+  font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--gold-dk);
+}
+.header h1 { margin: 4px 0 2px; font-size: 34px; letter-spacing: -0.02em; }
+.header .sub { color: var(--muted); font-size: 15px; }
+
+.view { display: none; }
+.view.active { display: block; animation: fade 0.25s ease; }
+@keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; } }
+
+.card {
+  background: var(--card); border-radius: var(--radius);
+  padding: 18px; margin: 14px 0; box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+}
+.card h2 { margin: 0 0 6px; font-size: 20px; }
+
+.section-title { font-size: 18px; font-weight: 700; margin: 18px 2px 4px; }
+.muted { color: var(--muted); font-size: 14px; }
+
+/* banner */
+.banner {
+  background: linear-gradient(135deg, #FACC15, var(--gold) 55%, var(--gold-deep));
+  color: #fff; border-radius: 22px; padding: 20px; margin: 6px 0 14px;
+  box-shadow: var(--shadow);
+}
+.banner-title { font-weight: 800; font-size: 17px; margin-bottom: 6px; }
+.banner p { margin: 0 0 12px; color: #FEF3C7; font-size: 14px; }
+
+/* buttons */
+.btn {
+  background: var(--gold); color: #fff; border: none; border-radius: 999px;
+  padding: 13px 22px; font-size: 16px; font-weight: 700; cursor: pointer;
+  width: 100%; transition: transform 0.08s ease, background 0.15s ease;
+}
+.btn:hover { background: var(--gold-dk); }
+.btn:active { transform: scale(0.98); }
+.btn.light { background: #fff; color: var(--gold-deep); width: auto; }
+
+/* forms */
+label { display: block; font-size: 13px; font-weight: 600; color: var(--muted); margin: 12px 0 6px; }
+input[type="text"], input[type="number"], select {
+  width: 100%; padding: 13px 14px; font-size: 16px; border-radius: 14px;
+  border: 2px solid var(--line); background: #fff; color: var(--ink);
+  font-family: inherit;
+}
+input:focus, select:focus { outline: none; border-color: var(--gold); }
+.row { display: flex; gap: 12px; }
+.row .grow { flex: 1; min-width: 0; }
+.row-between { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 10px; }
+
+.search-wrap { position: relative; margin: 4px 0 6px; }
+.search-wrap .icon { position: absolute; left: 14px; top: 13px; font-size: 18px; }
+.search-wrap input { padding-left: 44px; }
+
+/* mandi rate rows */
+.rate-row {
+  display: flex; align-items: center; gap: 12px; background: var(--card);
+  border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 14px; margin: 10px 0; box-shadow: var(--shadow);
+}
+.rate-icon {
+  font-size: 30px; background: var(--gold-50); border-radius: 14px;
+  width: 56px; height: 56px; display: flex; align-items: center; justify-content: center;
+  flex: none;
+}
+.rate-main { flex: 1; min-width: 0; }
+.rate-main strong { font-size: 16px; display: block; }
+.spark { width: 96px; height: 34px; flex: none; }
+.rate-price { text-align: right; flex: none; }
+.rate-price strong { font-size: 17px; display: block; }
+.up { color: var(--good); font-weight: 700; font-size: 13px; }
+.down { color: var(--bad); font-weight: 700; font-size: 13px; }
+
+.cta-card { border: 2px solid var(--gold-100); }
+
+/* munsif meter */
+.range-note { font-size: 14px; color: var(--gold-dk); font-weight: 600; margin-top: 6px; }
+.verdict-box { border-radius: 14px; padding: 16px; text-align: center; margin: 6px 0 14px; }
+.verdict-box.bad { background: #FEE2E2; }
+.verdict-box.ok { background: #D1FAE5; }
+.verdict-label { font-size: 26px; font-weight: 800; letter-spacing: 0.02em; }
+.verdict-box.bad .verdict-label { color: var(--bad); }
+.verdict-box.ok .verdict-label { color: var(--good); }
+
+.meter-bar { position: relative; height: 14px; background: var(--line); border-radius: 999px; margin: 26px 6px 8px; }
+.meter-mandi { position: absolute; top: -8px; width: 5px; height: 30px; background: var(--gold-dk); border-radius: 3px; transform: translateX(-50%); }
+.meter-offer { position: absolute; top: -4px; width: 22px; height: 22px; border-radius: 50%; transform: translateX(-50%); border: 3px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+.meter-offer.bad { background: var(--bad); }
+.meter-offer.ok { background: var(--good); }
+.meter-legend { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: var(--muted); margin: 0 2px; }
+.loss-box { background: #FEE2E2; border-radius: 14px; padding: 14px 16px; margin-top: 14px; color: #991B1B; font-size: 15px; }
+.loss-box strong { font-size: 20px; }
+.tips { margin-top: 14px; display: grid; gap: 8px; }
+.tip { font-size: 14px; color: var(--ink); }
+
+/* sowing planner */
+.big-date { font-size: 30px; font-weight: 800; letter-spacing: -0.01em; margin: 6px 0 2px; }
+.progress { height: 12px; background: var(--line); border-radius: 999px; margin: 14px 0 6px; overflow: hidden; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-dk)); border-radius: 999px; }
+.pill { display: inline-block; background: var(--gold-100); color: var(--gold-deep); font-weight: 700; font-size: 13px; padding: 5px 12px; border-radius: 999px; }
+.pill.ok { background: #D1FAE5; color: #065F46; }
+.pill.warn { background: #FEE2E2; color: #991B1B; }
+.varieties { margin-top: 12px; font-size: 14px; }
+.tip-text { font-size: 14px; background: var(--gold-50); border-radius: 12px; padding: 10px 14px; margin: 12px 0 0; }
+
+.weather-strip { display: flex; gap: 8px; margin: 8px 0 4px; }
+.wday {
+  flex: 1; background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+  padding: 10px 4px; text-align: center; box-shadow: var(--shadow); min-width: 0;
+}
+.wicon { font-size: 26px; margin: 4px 0; }
+
+.alert-card {
+  display: flex; gap: 12px; align-items: flex-start; background: #DBEAFE;
+  border-radius: var(--radius); padding: 14px 16px; margin: 12px 0; font-size: 26px;
+}
+.alert-card strong { color: #1E40AF; font-size: 15px; }
+
+.check { display: flex; align-items: center; gap: 12px; padding: 10px 2px; font-size: 15px; cursor: pointer; }
+.check input { width: 22px; height: 22px; accent-color: var(--gold); flex: none; }
+.check input:checked + span { text-decoration: line-through; color: var(--muted); }
+
+/* costs */
+.money-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0; }
+.money { background: var(--gold-50); border-radius: 14px; padding: 12px 14px; }
+.money strong { font-size: 19px; display: block; }
+.money.good { background: #D1FAE5; }
+.money.good strong { color: #065F46; }
+.cost-rows { border-top: 2px solid var(--line); margin-top: 6px; }
+.cost-row { display: flex; justify-content: space-between; padding: 8px 2px; font-size: 14px; border-bottom: 1px solid var(--line); }
+
+/* tab bar */
+.tabbar {
+  position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(8px); border-top: 1px solid var(--line);
+  display: flex; padding: 8px 4px calc(10px + env(safe-area-inset-bottom));
+  z-index: 10;
+}
+.tab {
+  flex: 1; background: none; border: none; font-family: inherit; font-size: 11px;
+  font-weight: 600; color: var(--muted); cursor: pointer; padding: 4px 0;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+}
+.tab .ticon { font-size: 22px; }
+.tab.active { color: var(--gold-dk); }
+
+@media (min-width: 700px) {
+  .header h1 { font-size: 40px; }
+}
